@@ -2,10 +2,15 @@
 # kexec (linux booting linux)
 #
 PURGATORY_HEX_C = kexec/purgatory.c
+DUMMY_PURGATORY_HEX_C = kexec/dummy_purgatory.c
 
 $(PURGATORY_HEX_C): $(PURGATORY) $(BIN_TO_HEX)
 	$(MKDIR) -p $(@D)
 	$(BIN_TO_HEX) purgatory < $(PURGATORY) > $@
+
+$(DUMMY_PURGATORY_HEX_C): $(DUMMY_PURGATORY) $(BIN_TO_HEX)
+	$(MKDIR) -p $(@D)
+	$(BIN_TO_HEX) dummy_purgatory < $(DUMMY_PURGATORY) > $@
 
 KEXEC_SRCS = $(KEXEC_SRCS_base)
 KEXEC_GENERATED_SRCS =
@@ -27,6 +32,7 @@ KEXEC_SRCS_base += kexec/lzma.c
 KEXEC_SRCS_base += kexec/zlib.c
 
 KEXEC_GENERATED_SRCS += $(PURGATORY_HEX_C)
+KEXEC_GENERATED_SRCS += $(DUMMY_PURGATORY_HEX_C)
 
 dist += kexec/Makefile $(KEXEC_GENERATED_SRCS)			\
 	$(KEXEC_SRCS_base) kexec/crashdump-elf.c		\

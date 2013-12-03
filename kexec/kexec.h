@@ -252,6 +252,9 @@ extern int ifdown(void);
 extern char purgatory[];
 extern size_t purgatory_size;
 
+extern char dummy_purgatory[];
+extern size_t dummy_purgatory_size;
+
 #define BOOTLOADER "kexec"
 #define BOOTLOADER_VERSION PACKAGE_VERSION
 

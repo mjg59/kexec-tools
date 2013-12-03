@@ -9,6 +9,7 @@ i386_KEXEC_SRCS += kexec/arch/i386/kexec-bzImage.c
 i386_KEXEC_SRCS += kexec/arch/i386/kexec-multiboot-x86.c
 i386_KEXEC_SRCS += kexec/arch/i386/kexec-beoboot-x86.c
 i386_KEXEC_SRCS += kexec/arch/i386/kexec-nbi.c
+i386_KEXEC_SRCS += kexec/arch/i386/kexec-dummy.c
 i386_KEXEC_SRCS += kexec/arch/i386/x86-linux-setup.c
 i386_KEXEC_SRCS += kexec/arch/i386/crashdump-x86.c
 
